@@ -5,7 +5,7 @@ class ForComprehension {
 
   def createList(): List[Cat] = {
     val catsList: List[Cat] =
-      List(new Cat("Wanilia", 3, "grey"),
+      List(Cat("Wanilia", 3, "grey"),
         Cat("Paul", 4.5, "orange"),
         Cat("Antoni", 5, "black"),
         Cat("Coco", 2.5, "white"),
@@ -15,23 +15,23 @@ class ForComprehension {
         Cat("Gold", 4.2, "orange"),
         Cat("Lion", 3.4, "orange"),
         Cat("Olaf", 3, "grey"))
-    return catsList
+    catsList
   }
 
   def versionWithSugar(minCatWeight: Double, maxCatWeight: Double, catList: List[Cat]): List[String] ={
     val catNames = for (
       cat <- catList if(cat.weight > minCatWeight && cat.weight <= maxCatWeight)
     ) yield cat.name
-    return catNames
+    catNames
   }
 
   def versionWithoutSugar(minCatWeight: Double, maxCatWeight: Double, catList: List[Cat]): List[String] ={
     var catNames: List[String] = catList.filter(_.weight > minCatWeight).filter(_.weight <= maxCatWeight)
       .collect(_.name)
-    return catNames
+    catNames
   }
 
-  def multipleGenerators(n: Int) = {
+  def multipleGenerators(n: Int): IndexedSeq[(Int, Int)] = {
     for (
       i <- 0 until n;
       j <- 0 until n if i == j
@@ -49,28 +49,28 @@ class ForComprehension {
       color <- colorOpt
       weight <- weightOpt
     } yield Cat(name, weight, color)
-    return cat
+    cat
   }
 
   //flatMap
   def flatMapWithoutSugar(list: List[Cat]): List[Char] = {
     val listNames: List[Char]  = list.flatMap(Cat => Cat.name.toLowerCase)
-    return listNames
+    listNames
   }
 
   def flatMapWithSugar(list: List[Cat]): List[String] = {
     val listNames: List[String] = for (nameCat <- list) yield nameCat.name.toLowerCase
-    return listNames
+    listNames
   }
 
   //Map
   def mapWithoutSugar(list: List[Cat]): List[Double] = {
     val listWeights: List[Double]  = list.map(Cat => Cat.weight*2)
-    return listWeights
+    listWeights
   }
 
   def mapWithSugar(list: List[Cat]): List[Double] = {
     val listWeights: List[Double] = for (cat <- list) yield cat.weight*2
-    return listWeights
+    listWeights
   }
 }

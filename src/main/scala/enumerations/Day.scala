@@ -13,7 +13,7 @@ object Day extends Enumeration {
 
   def isWeekend(day: Day): Boolean = {
     if (day == Day.sixth || day == Day.seventh) {
-      return true
-    } else return false
+      true
+    } else false
   }
 }

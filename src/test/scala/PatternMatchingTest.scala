@@ -19,6 +19,12 @@ class PatternMatchingTest extends FunSuite {
     val num = patternMatching.matchMixTypes(24)
     assert(num == "Dowolna całkowita")
   }
+
+  test("Extractor test"){
+    val patternMatching = new PatternMatching
+    val num = patternMatching.extractorTest(24)
+    assert(num == 24)
+  }
 }
 
 

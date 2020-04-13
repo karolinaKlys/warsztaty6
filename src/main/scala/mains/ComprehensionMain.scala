@@ -1,4 +1,5 @@
 package mains
+
 import forComprehension.ForComprehension
 import cats.Cat
 

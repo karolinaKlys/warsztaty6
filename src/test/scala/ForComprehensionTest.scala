@@ -40,7 +40,6 @@ class ForComprehensionTest extends FunSuite {
 
   test("Option test"){
     val forComprehension = new ForComprehension
-    val list = forComprehension.createList()
     val option = forComprehension.optionSugar()
     assert(option.isEmpty)
   }
